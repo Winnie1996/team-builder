@@ -20,33 +20,51 @@ function MemberForm(props) {
             </div>
             
             <div className='form-group inputs'>
+                 <label>Leader Name:&nbsp;
                     <input
-                        leader='nameInput'
+                        value={values.name}
+                        leader='name'
+                        type='text'
+                        placeholder='Enter Leader Name'
+                        maxLength='20'
+                        onChange={onChange}
+                    />
+                    </label>
+                    <br></br><br></br>
+                    <label>Student Name:&nbsp;
+                    <input
+                        value={values.name}
                         name='name'
                         type='text'
                         placeholder='Enter Name'
                         maxLength='20'
-                        value={values.name}
+                        
                         onChange={onChange}
                     />
+                    </label>
                     <br></br><br></br>
+                    <label>Email:&nbsp;
                     <input
-                        id='emailInput'
-                        name='email'
-                        type='email'
-                        placeholder='Enter email'
-                        maxLength='20'
                         value={values.email}
+                        name='email'
+                        type='text'
+                        placeholder='Enter Email'
+                        maxLength='20'
                         onChange={onChange}
                     />
+                    </label>
+
                     <br></br><br></br>
+                    <label>Course:&nbsp;
                 <select name='role' value={values.role} onChange={onChange}>
                     <option value=''>Select a role</option>
                     <option value='student'>Backend</option>
                     <option value='instructor'>FrontEnd</option>
-                    <option value='tl'>Full Sack Web</option>
-                    <option value='tl'>Developer</option>
+                    <option value='tl'>Full Stack Web Developer</option>
+                    <option value='tl'>IOS</option>
+                    <option value='tl'>Data Science</option>
                 </select>
+                </label>
                 <div>
                     <button enabled={!values.username || !values.email || !values.role}>Submit</button>
                 </div>
