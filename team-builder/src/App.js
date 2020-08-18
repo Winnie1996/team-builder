@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MemberForm from './MemberForm'
 
 
 const initialMembers = [{
@@ -18,10 +18,10 @@ function App() {
 
   const [members, setMembers] = useState(initialMembers)
   const [teamFormValues, setTeamFormValues] = useState({
-    leader:"",
-    name:"",
-    email:"",
-    course:"",
+    leader: "",
+    name: "",
+    email: "",
+    course: "",
   })
 
   // Updater to change member //
@@ -31,27 +31,36 @@ function App() {
   }
 
   // Adding a Submit Form // 
-  
-  const submitForm = () => {
 
+  const submitForm = () => {
+    const newMember = {
+      leader: teamFormValues.leader.trim(),
+      name: teamFormValues.name.trim(),
+      email: teamFormValues.email.trim(),
+      course: teamFormValues.course
+    }
+    if (!newMember.name || !newMember.email || !newMember.role) return
   }
 
 
 
   return (
-      <div className="container">
-        <header><h1> Members App</h1></header>
-        {members.map(member => {
-          return member.name
-        })
+    <div className="container">
+      <header><h1> Members App</h1></header>
 
-        }
-      {/* <Form
-      values = {teamValues}
-      update = {updateMember}
-      submit = {submitForm}
-      /> */}
-      </div>
+      <MemberForm
+        values={teamFormValues}
+        update={updateMember}
+        submit={submitForm}
+      />
+
+      {members.map(member => {
+        return member.name
+
+      })
+
+      }
+    </div>
   );
 
 }
